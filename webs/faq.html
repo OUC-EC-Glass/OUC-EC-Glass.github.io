@@ -2,7 +2,7 @@
 <html lang="zh">
 <head>
     <meta charset="UTF-8">
-    <title>faq</title>
+    <title>FAQ</title>
     <link href="https://fonts.googleapis.com/css2?family=Inknut+Antiqua:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         /* 重置默认样式 */
@@ -11,24 +11,24 @@
             padding: 0;
             width: 100%;
             height: 100%;
-            position: relative; /* 添加定位上下文 */
+            position: relative;
         }
         .b_1 {
             width: 100%;
             height: 14vh;
             background-color: #FFFFFF;
         }
-        .b_2{
-            width:100%;
+        .b_2 {
+            width: 100%;
             height: 86vh;
             background-image: url("../images/5_1.png");
             background-repeat: no-repeat;
             background-size: cover;
             background-attachment: fixed;
-            position: relative; /* 添加定位上下文 */
+            position: relative;
         }
         /* 新增容器样式 */
-        .content-overlay{
+        .content-overlay {
             position: absolute;
             top: 0;
             left: 0;
@@ -37,7 +37,7 @@
             padding: 20px;
             box-sizing: border-box;
         }
-        .content-overlay-2{
+        .content-overlay-2 {
             position: absolute;
             top: 0;
             left: 0;
@@ -46,35 +46,34 @@
             padding: 20px;
             box-sizing: border-box;
         }
-        .w_1{
+        .w_1 {
             color: #004AAD;
             font-family: "Inknut Antiqua", serif;
             font-size: 36px;
             font-weight: 800;
-            position: absolute; /* 绝对定位 */
+            position: absolute;
             top: 5%;
             left: 5%;
             z-index: 10;
         }
-        /* 其他文字样式调整 */
-        .w_2{
+        .w_2 {
             color: #004AAD;
             font-family: "Inspiration", serif;
             font-size: 32px;
         }
-        .w_3{
+        .w_3 {
             color: #4B4A4A;
             font-family: "Inspiration", serif;
             font-size: 32px;
             cursor: pointer;
         }
-        .w_4{
+        .w_4 {
             color: #063B82;
             font-family: "STKaiti", serif;
             font-size: 96px;
             position: absolute;
         }
-        .w_5{
+        .w_5 {
             color: #343333;
             font-family: "FZSongKeBenXiuKaiS-R-GB", serif;
             font-size: 40px;
@@ -115,33 +114,27 @@
         }
         a {
             text-decoration: none; /* 移除下划线 */
-            color: inherit; /
+            color: inherit;
         }
         .svg-wrapper {
             left: -44px;
             top: 130px;
             position: absolute;
         }
-        /* 答案框样式 */
-        .answer-box {
-            width: 844px;
-            height: 223px;
-            left: 61px;
-            top: 747px;
-            position: absolute;
-            background: #F2F1F1;
-            border-radius: 22px;
-        }
+        /* 问题样式 */
         .question {
             width: 844px;
             height: 82px;
             padding: 10px;
             position: absolute;
             background: white;
-            display: inline-flex;
-            justify-content: center;
+            display: flex;
+            justify-content: space-between;
             align-items: center;
             gap: 10px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            z-index: 1; /* 确保问题在背景之上 */
         }
         /* 问题文本样式 */
         .question-text {
@@ -151,14 +144,25 @@
             font-weight: 800;
             word-wrap: break-word;
         }
-        /* 展开符号样式 */
-        .expand-symbol {
-            position: absolute;
+        /* 加号按钮样式 */
+        .expand-btn {
+            font-size: 48px;
             color: #004AAD;
-            font-size: 64px;
-            font-family: Inter;
-            font-weight: 400;
-            word-wrap: break-word;
+            cursor: pointer;
+            user-select: none;
+        }
+        /* 答案区域样式 */
+        .answer-box {
+            width: 844px;
+            padding: 20px;
+            background: #F2F1F1;
+            border-radius: 10px;
+            margin-top: 10px;
+            display: none; /* 初始状态为隐藏 */
+            position: absolute;
+            left: 0;
+            top: 100%; /* 在问题下方 */
+            z-index: 1000; /* 确保答案在最上层 */
         }
         /* 大标题样式 */
         .big-title {
@@ -170,18 +174,7 @@
             font-family: Inknut Antiqua;
             font-weight: 800;
             word-wrap: break-word;
-        }
-        /* 描述文本样式 */
-        .description {
-            width: 737px;
-            left: 114px;
-            top: 818px;
-            position: absolute;
-            color: black;
-            font-size: 32px;
-            font-family: FZSongKeBenXiuKaiS-R-GB;
-            font-weight: 400;
-            word-wrap: break-word;
+            z-index: 2; /* 确保标题在背景之上 */
         }
     </style>
 </head>
@@ -200,36 +193,113 @@
         </div>
     </div>
     <div class="b_2">
-    <div class="content-overlay-2">
-    <div class="question" style="left: 61px; top: 366px;">
-        <div><span class="question-text">电致变色玻璃的变色稳定性如何？</span></div>
+        <div class="content-overlay-2">
+            <!-- 问题1 -->
+            <div class="question" style="left: 61px; top: 366px;">
+                <div class="question-text">电致变色玻璃的变色稳定性如何？</div>
+                <div class="expand-btn">+</div>
+            </div>
+            <div class="answer-box" style="left: 61px; top: 458px;">
+                待填入。
+            </div>
+
+            <!-- 问题2 -->
+            <div class="question" style="left: 976px; top: 366px;">
+                <div class="question-text">电致变色玻璃的变色稳定性如何？</div>
+                <div class="expand-btn">+</div>
+            </div>
+            <div class="answer-box" style="left: 976px; top: 458px;">
+                待填入。
+            </div>
+
+            <!-- 问题3 -->
+            <div class="question" style="left: 61px; top: 478px;">
+                <div class="question-text">电致变色玻璃的储能功能如何工作？</div>
+                <div class="expand-btn">+</div>
+            </div>
+            <div class="answer-box" style="left: 61px; top: 570px;">
+                待填入。
+            </div>
+
+            <!-- 问题4 -->
+            <div class="question" style="left: 976px; top: 478px;">
+                <div class="question-text">电致变色玻璃的储能功能如何工作？</div>
+                <div class="expand-btn">+</div>
+            </div>
+            <div class="answer-box" style="left: 976px; top: 570px;">
+                待填入。
+            </div>
+
+            <!-- 问题5 -->
+            <div class="question" style="left: 61px; top: 590px;">
+                <div class="question-text">如何购买和安装电致变色玻璃？</div>
+                <div class="expand-btn">+</div>
+            </div>
+            <div class="answer-box" style="left: 61px; top: 682px;">
+                待填入。
+            </div>
+
+            <!-- 问题6 -->
+            <div class="question" style="left: 976px; top: 590px;">
+                <div class="question-text">如何购买和安装电致变色玻璃？</div>
+                <div class="expand-btn">+</div>
+            </div>
+            <div class="answer-box" style="left: 976px; top: 682px;">
+                待填入。
+            </div>
+
+            <!-- 问题7 -->
+            <div class="question" style="left: 61px; top: 702px;">
+                <div class="question-text">电致变色玻璃如何提高车内的安全性？</div>
+                <div class="expand-btn">+</div>
+            </div>
+            <div class="answer-box" style="left: 61px; top: 794px;">
+                通过调节玻璃的透明度，电致变色玻璃可以有效控制车内光线和热量，特别是在夏季高温环境下，减少车内温度上升，提高乘客的舒适度和安全性。
+            </div>
+
+            <!-- 问题8 -->
+            <div class="question" style="left: 976px; top: 702px;">
+                <div class="question-text">电致变色玻璃如何提高车内的安全性？</div>
+                <div class="expand-btn">+</div>
+            </div>
+            <div class="answer-box" style="left: 976px; top: 794px;">
+                待填入。
+            </div>
+
+            <!-- 问题9 -->
+            <div class="question" style="left: 976px; top: 814px;">
+                <div class="question-text">电致变色玻璃如何提高车内的安全性？</div>
+                <div class="expand-btn">+</div>
+            </div>
+            <div class="answer-box" style="left: 976px; top: 906px;">
+                待填入。
+            </div>
+
+            <!-- 大标题 -->
+            <div class="big-title">常见问题解答</div>
+        </div>
     </div>
-    <div class="question" style="left: 976px; top: 366px;">
-        <div><span class="question-text">电致变色玻璃的变色稳定性如何？</span></div>
-    </div>
-    <div class="question" style="left: 61px; top: 478px;">
-        <div class="question-text">电致变色玻璃的储能功能如何工作？</div>
-    </div>
-    <div class="question" style="left: 976px; top: 478px;">
-        <div class="question-text">电致变色玻璃的储能功能如何工作？</div>
-    </div>
-    <div class="question" style="left: 61px; top: 590px;">
-        <div class="question-text">如何购买和安装电致变色玻璃？</div>
-    </div>
-    <div class="question" style="left: 976px; top: 590px;">
-        <div class="question-text">如何购买和安装电致变色玻璃？</div>
-    </div>
-    <div class="question" style="left: 61px; top: 702px;">
-        <div class="question-text">电致变色玻璃如何提高车内的安全性？</div>
-    </div>
-    <div class="question" style="left: 976px; top: 702px;">
-        <div class="question-text">电致变色玻璃如何提高车内的安全性？</div>
-    </div>
-    <div class="question" style="left: 976px; top: 814px;">
-        <div class="question-text">电致变色玻璃如何提高车内的安全性？</div>
-    </div>
-    <div class="big-title">常见问题解答</div>
-</div>
-</div>
+
+    <script>
+        // 获取所有加号按钮
+        const expandButtons = document.querySelectorAll('.expand-btn');
+
+        // 遍历每个按钮
+        expandButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // 找到对应的答案区域
+                const answerBox = button.parentElement.nextElementSibling;
+
+                // 切换答案区域的显示状态
+                if (answerBox.style.display === 'none' || !answerBox.style.display) {
+                    answerBox.style.display = 'block';
+                    button.textContent = '-'; // 切换为减号
+                } else {
+                    answerBox.style.display = 'none';
+                    button.textContent = '+'; // 切换为加号
+                }
+            });
+        });
+    </script>
 </body>
 </html>
