@@ -6,6 +6,129 @@
     <title>产品优势</title>
     <link href="https://fonts.googleapis.com/css2?family=Inknut+Antiqua:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
+         html, body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            position: relative; /* 添加定位上下文 */
+        }
+        .b_1 {
+            width: 100%;
+            height: 14vh;
+            background-color: #FFFFFF;
+        }
+        .b_2{
+            width:100%;
+            height: 86vh;
+            background-image: url("../images/1_2.png");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+            position: relative; /* 添加定位上下文 */
+        }
+        /* 新增容器样式 */
+        .content-overlay{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 20%;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .content-overlay-2{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 80%;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            width: 50%;
+            margin: 0 auto;
+            position: absolute;
+            right: 0;
+            top: 40%;
+            transform: translateY(-25%);
+        }
+        .w_1{
+            color: #004AAD;
+            font-family: "Inknut Antiqua", serif;
+            font-size: 36px;
+            font-weight: 800;
+            position: absolute; /* 绝对定位 */
+            top: 5%;
+            left: 5%;
+            z-index: 10;
+        }
+        /* 其他文字样式调整 */
+        .w_2{
+            color: #004AAD;
+            font-family: "Inspiration", serif;
+            font-size: 32px;
+        }
+        .w_3{
+            color: #4B4A4A;
+            font-family: "Inspiration", serif;
+            font-size: 32px;
+            cursor: pointer;
+        }
+        .w_4{
+            color: #807E7E;
+            font-family: "Inknut Antiqua";
+            font-size: 35px;
+            font-weight: 800;
+            position: absolute;
+        }
+        .w_5{
+            color: #000;
+            font-family: FZSongKeBenXiuKaiS-R-GB;
+            font-size: 25px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal;
+            position: absolute;
+        }
+        .nav-item {
+            flex: 1;
+            text-align: center;
+            white-space: nowrap;
+        }
+        .logo {
+            position: absolute;
+            top: 0;
+            left: 5%;
+            z-index: 5;
+        }
+        .title-1 {
+            left: 13%;
+            top: 18%;
+        }
+        .title-2 {
+            left: 15%;
+            top: 20%;
+        }
+        .title-3 {
+            left: 15%;
+            top: 40%;
+        }
+        a {
+            text-decoration: none; /* 移除下划线 */
+            color: inherit; /
+        }
+        .box {
+            position: absolute;
+            border-radius: 15px;
+        }
+        .gray-box {
+            background: #F6F8F8;
+        }
+       
         .advantage-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
