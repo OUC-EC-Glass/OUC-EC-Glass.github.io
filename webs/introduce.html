@@ -11,24 +11,24 @@
             padding: 0;
             width: 100%;
             height: 100%;
-            position: relative; /* 添加定位上下文 */
+            position: relative;
         }
         .b_1 {
             width: 100%;
             height: 14vh;
             background-color: #FFFFFF;
         }
-        .b_2{
-            width:100%;
+        .b_2 {
+            width: 100%;
             height: 86vh;
             background-image: url("../images/1_2.png");
             background-repeat: no-repeat;
             background-size: cover;
             background-attachment: fixed;
-            position: relative; /* 添加定位上下文 */
+            position: relative;
         }
         /* 新增容器样式 */
-        .content-overlay{
+        .content-overlay {
             position: absolute;
             top: 0;
             left: 0;
@@ -37,7 +37,7 @@
             padding: 20px;
             box-sizing: border-box;
         }
-        .content-overlay-2{
+        .content-overlay-2 {
             position: absolute;
             top: 0;
             left: 0;
@@ -46,35 +46,34 @@
             padding: 20px;
             box-sizing: border-box;
         }
-        .w_1{
+        .w_1 {
             color: #004AAD;
             font-family: "Inknut Antiqua", serif;
             font-size: 36px;
             font-weight: 800;
-            position: absolute; /* 绝对定位 */
+            position: absolute;
             top: 5%;
             left: 5%;
             z-index: 10;
         }
-        /* 其他文字样式调整 */
-        .w_2{
+        .w_2 {
             color: #004AAD;
             font-family: "Inspiration", serif;
             font-size: 32px;
         }
-        .w_3{
+        .w_3 {
             color: #4B4A4A;
             font-family: "Inspiration", serif;
             font-size: 32px;
             cursor: pointer;
         }
-        .w_4{
+        .w_4 {
             color: #063B82;
             font-family: "STKaiti", serif;
             font-size: 96px;
             position: absolute;
         }
-        .w_5{
+        .w_5 {
             color: #343333;
             font-family: "FZSongKeBenXiuKaiS-R-GB", serif;
             font-size: 40px;
@@ -115,7 +114,7 @@
         }
         a {
             text-decoration: none; /* 移除下划线 */
-            color: inherit; /
+            color: inherit;
         }
         .tech-principle-title {
             left: 495px;
@@ -290,6 +289,27 @@
             top: 297.50px;
             position: absolute;
         }
+        /* 按钮样式 */
+        .switch-btn {
+            position: absolute;
+            background-color: #004AAD;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        /* 技术原理按钮位置 */
+        .tech-principle-btn {
+            left: 1200px;
+            top: 120px;
+        }
+        /* 组成部分按钮位置 */
+        .components-btn {
+            left: 1200px;
+            top: 160px;
+        }
     </style>
 </head>
 <body>
@@ -318,7 +338,7 @@
     <div class="separator"></div>
     <img class="energy-storage-image" src="../images/2_2.png" alt="高效储能技术图片">
     <div class="description-2">
-    综述：高效储能技术通过将电致变色玻璃与储能系统集成，使其能够在汽车运行过程中或在蓄电池供电时储存电能。这些储存的电能可以在断电时用于维持电致变色玻璃的着色状态，从而继续减少车内或室内温度，提升安全性和舒适度。<br/>储能过程：在汽车行驶或充电过程中，多余的电能被储存在电致变色玻璃的储能系统中。这些电能可以在需要时释放，以维持玻璃的着色状态。<br/>断电保护：在断电情况下（如停车时），储能系统可以自动供电，确保电致变色玻璃保持在着色状态，持续降低车内温度，保护车内物品和乘客安全。
+        综述：高效储能技术通过将电致变色玻璃与储能系统集成，使其能够在汽车运行过程中或在蓄电池供电时储存电能。这些储存的电能可以在断电时用于维持电致变色玻璃的着色状态，从而继续减少车内或室内温度，提升安全性和舒适度。<br/>储能过程：在汽车行驶或充电过程中，多余的电能被储存在电致变色玻璃的储能系统中。这些电能可以在需要时释放，以维持玻璃的着色状态。<br/>断电保护：在断电情况下（如停车时），储能系统可以自动供电，确保电致变色玻璃保持在着色状态，持续降低车内温度，保护车内物品和乘客安全。
     </div>
     <div class="catalog-header"></div>
     <div class="catalog-title">目录</div>
@@ -336,5 +356,56 @@
             <path d="M0 77H319M0 0.5H319M0 39.5H319" stroke="#FFFDFD"/>
         </svg>
     </div>
+
+    <!-- 切换按钮 -->
+    <button class="switch-btn tech-principle-btn" style="left: 210px;top: 250px"><img src="../images/Polygon_1.svg" ></button>
+    <button class="switch-btn components-btn"style="left: 210px;top: 375px"><img src="../images/Polygon_1.svg" ></button>
+
+    <script>
+        // 获取按钮和描述区域
+        const techPrincipleBtn = document.querySelector('.tech-principle-btn');
+        const componentsBtn = document.querySelector('.components-btn');
+        const electrochromicDescription = document.querySelector('.electrochromic-description');
+        const description2 = document.querySelector('.description-2');
+
+        // 技术原理描述
+        const techPrincipleText1 = `
+            综述：电致变色技术是一种基于电化学反应的智能玻璃技术。通过施加电压，电致变色玻璃的透明度可以在透明和有色两种状态之间切换，从而实现对可见光和红外光的智能调节。这种技术的核心是利用电致变色材料，如氧化钨（WO3），其在不同电压下能够改变其光学性质。<br/>
+            透明态：当电压施加在电致变色玻璃上时，电致变色材料发生电化学反应，电子和离子在电致变色层中移动，玻璃变得透明，允许最大量的可见光和红外光通过。<br/>
+            着色态：当电压移除或反向施加时，电致变色材料中的电子和离子回到原来的位置，玻璃变得有色，减少可见光和红外光的透过，从而降低车内或室内温度。
+        `;
+
+        const techPrincipleText2 = `
+            综述：电致变色玻璃由多个关键组件组成，包括电致变色层、离子导体层、对电极层和透明导电层。这些组件共同作用，实现了玻璃的智能变色功能。<br/>
+            电致变色层：由氧化钨（WO3）等材料制成，负责在电压作用下改变颜色。<br/>
+            离子导体层：允许离子在电致变色层和对电极层之间移动，是实现变色的关键。<br/>
+            对电极层：在电致变色过程中提供电荷平衡。<br/>
+            透明导电层：提供电压并确保玻璃的透明度。
+        `;
+
+        const componentsText1 = `
+            待填入。
+        `;
+
+        const componentsText2 = `
+            待填入。
+        `;
+
+        // 默认显示技术原理描述
+        electrochromicDescription.innerHTML = techPrincipleText1;
+        description2.innerHTML = techPrincipleText2;
+
+        // 技术原理按钮点击事件
+        techPrincipleBtn.addEventListener('click', () => {
+            electrochromicDescription.innerHTML = techPrincipleText1;
+            description2.innerHTML = techPrincipleText2;
+        });
+
+        // 组成部分按钮点击事件 这部分暂时没有用
+        /*componentsBtn.addEventListener('click', () => {
+            electrochromicDescription.innerHTML = componentsText1;
+            description2.innerHTML = componentsText2;
+        });*/
+    </script>
 </body>
 </html>
