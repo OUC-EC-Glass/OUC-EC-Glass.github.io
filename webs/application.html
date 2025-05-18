@@ -1,382 +1,332 @@
 <!DOCTYPE html>
 <html lang="zh">
+
 <head>
     <meta charset="UTF-8">
     <title>应用场景</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inknut+Antiqua:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inknut+Antiqua:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
     <style>
         /* 重置默认样式 */
-        html, body {
-            margin: 0;
-            padding: 0;
-            width: 100%;
-            height: 100%;
-            position: relative;
-        }
-
-        /* 导航栏区域 */
-        .b_1 {
-            width: 100%;
-            height: 14vh;
-            background-color: #FFFFFF;
-        }
-
-        
-        /* 背景图片和文字区域 */
-        .b_2 {
-            width: 100%;
-            height: 100vh; /* 占据整个视口高度 */
-            height: 100vh; /* 占据整个视口高度 */
-            position: relative;
-            overflow: hidden; /* 隐藏溢出部分 */
-            top: 14vh; /* 从导航栏下方开始 */
-        }
-
-        .title-1 {
-            left: 13%;
-            top: 18%;
-        }
-        .title-2 {
-            left: 15%;
-            top: 20%;
-        }
-        .title-3 {
-            left: 15%;
-            top: 40%;
-        }
-        /* 轮播容器 */
-        .carousel {
+        body {
             display: flex;
-            width: 100%; /* 容器宽度为100% */
-            width: 100%; /* 容器宽度为100% */
-            height: 100%;
-            transition: transform 1s ease-in-out; /* 平滑过渡效果 */
-        }
-        /* 每组背景和文字 */
-        .slide-container {
-            width: 100%; /* 每组占满容器宽度 */
-            width: 100%; /* 每组占满容器宽度 */
-            height: 100%;
-            position: relative;
-            flex-shrink: 0; /* 防止内容被压缩 */
-            flex-shrink: 0; /* 防止内容被压缩 */
-        }
-        /* 背景图片 */
-        .slide-container img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover; /* 保持图片比例 */
-            object-fit: cover; /* 保持图片比例 */
-        }
-        /* 文字容器 */
-        .text-container {
-            position: absolute;
-            top: 50%;
-            left: 10%; /* 左对齐，距离左侧10% */
-            transform: translateY(-50%); /* 垂直居中 */
-            text-align: left; /* 文字左对齐 */
-            z-index: 3; /* 文字在背景之上 */
-            max-width: 80%; /* 限制文字宽度，避免过长 */
-            padding-right: 5%; /* 新增右边距 */
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #e3f2fd, #ffffff);
+            font-family: Arial, sans-serif;
+            overflow-y: scroll;
         }
 
-        a {
-            text-decoration: none; /* 移除下划线 */
-            color: inherit; /
+        .nav {
+            width: 100%;
+            height: 10vh;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            background-color: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(4px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
-        /* 新增响应式字体设置 */
-        .w_1{
+
+        .nav-wrapper {
+            width: 90%;
+            max-width: 1200px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-sizing: border-box;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+        }
+
+        .nav-item {
+            color: #4B4A4A;
+            font-family: "Inspiration", serif;
+            font-size: 18px;
+            text-decoration: none;
+            white-space: nowrap;
+            transition: color 0.3s ease;
+        }
+
+        .nav-item-now {
+            color: #004AAD;
+            font-family: "Inspiration", serif;
+            font-size: 18px;
+            text-decoration: none;
+            white-space: nowrap;
+            transition: color 0.3s ease;
+        }
+
+        .logo {
+            height: 60px;
+            flex-shrink: 0;
+        }
+
+        .logo-title {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-text {
             color: #004AAD;
             font-family: "Inknut Antiqua", serif;
             font-size: 36px;
-            font-size: 36px;
             font-weight: 800;
-            position: absolute; /* 绝对定位 */
-            top: 5%;
-            left: 5%;
-            z-index: 10;
-        }
-        .w_2 {
-            color: #004AAD;
-            font-family: "Inspiration", serif;
-            font-size: 32px;
-        }
-        .w_3 {
-            color: #4B4A4A;
-            font-family: "Inspiration", serif;
-            font-size: 32px;
-            cursor: pointer;
-        }
-        .w_4 {
-            color: #FFF;
-            font-family: "YRDZST", serif;
-            font-size: 96px;
-            font-weight: 800;
-            margin-bottom: 20px; /* 增加间距 */
-        }
-        .w_5 {
-            color: #FFF;
-            font-family: "YRDZST", serif;
-            font-size: 64px;
-            font-weight: 800;
-        }
-        .nav-container {
-            display: flex;
-            justify-content: space-between;
-            width: 50%;
-            margin: 0 auto;
-            position: absolute;
-            right: 0;
-            top: 40%;
-            transform: translateY(-25%);
-        }
-        .nav-item {
-            flex: 1;
-            text-align: center;
             white-space: nowrap;
         }
-        .logo {
-            position: absolute;
-            top: 0;
-            left: 5%;
-            z-index: 5;
-        }
-        .title-1 {
-            left: 13%;
-            top: 18%;
-        }
-        a {
-            text-decoration: none; /* 移除下划线 */
-            color: inherit;
-        }
-        /* 左右按钮样式 */
-        .carousel-btn {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            gap: 1vw; /* 新增间距 */
+
+        .carousel-wrapper {
+            background: rgba(255, 255, 255, 0.6);
+            border-radius: 24px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            backdrop-filter: blur(10px);
+            margin-top: 5vh;
         }
 
-        /* 新增移动端样式 */
-        @media (max-width: 768px) {
-            .nav-container {
-                width: 65%;
-                right: 2%;
-            }
-
-            .w_1{
-            color: #004AAD;
-            font-family: "Inknut Antiqua", serif;
-            font-size: 36px;
-            font-weight: 800;
-            position: absolute; /* 绝对定位 */
-            top: 5%;
-            left: 5%;
-            z-index: 10;
-            }
-        /* 其他文字样式调整 */
-            .w_2{
-            color: #004AAD;
-            font-family: "Inspiration", serif;
-            font-size: 32px;
-            }
-            .w_3{
-            color: #4B4A4A;
-            font-family: "Inspiration", serif;
-            font-size: 32px;
-            cursor: pointer;
-            }
-            .w_4{
-            color: #807E7E;
-            font-family: "Inknut Antiqua";
-            font-size: 35px;
-            font-weight: 800;
-            position: absolute;
-            }
-            .w_5{
-            color: #000;
-            font-family: FZSongKeBenXiuKaiS-R-GB;
-            font-size: 25px;
-            font-style: normal;
-            font-weight: 400;
-            line-height: normal;
-            position: absolute;
-            }
+        .carousel-container {
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            width: 75vw;
+            overflow: hidden;
+            border-radius: 20px;
+            background: #fefefe;
         }
 
-        /* 新增容器样式 */
-        .content-overlay{
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 20%;
-            padding: 20px;
-            box-sizing: border-box;
-        }
-        .content-overlay-2{
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 80%;
-            padding: 20px;
-            box-sizing: border-box;
-        }
-
-        /* 超小屏幕适配 */
-        @media (max-width: 480px) {
-            .nav-container {
+        .carousel-slides {
             display: flex;
-            justify-content: space-between;
-            width: 50%;
-            margin: 0 auto;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .slide {
+            min-width: 100%;
+            height: 70vh;
+            position: relative;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .slide-content {
             position: absolute;
-            right: 0;
-            top: 40%;
-            transform: translateY(-25%);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            max-width: 70%;
         }
 
-            .nav-item {
-                flex: 0 0 45%;
-                text-align: center;
+        .main-part {
+            padding: 24px 40px 40px;
+            background-color: rgba(255, 255, 255, 0.7);
+            border-radius: 12px;
+            backdrop-filter: blur(4px);
+            min-height: 30vh;
+            min-width: 40vw;
+            box-sizing: border-box;
+            color: #333;
+            text-align: left;
+            transition: min-height 0.3s ease;
+        }
+
+        .main-part h2,
+        .main-part p {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeUp 0.8s ease forwards;
+        }
+
+        .main-part h2 {
+            font-size: 28px;
+            margin-bottom: 12px;
+            animation-delay: 0.3s;
+        }
+
+        .main-part p {
+            font-size: 18px;
+            animation-delay: 0.6s;
+        }
+
+        @keyframes fadeUp {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
             }
 
-            .w_1 {
-                display: none; /* 小屏幕隐藏标题 */
-            }
-
-            .text-container {
-                text-align: center;
-                left: 50%;
-                transform: translate(-50%, -50%);
+            100% {
+                opacity: 1;
+                transform: translateY(0);
             }
         }
 
-        /* 左右按钮样式 */
-        .carousel-btn {
+        .arrow {
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            background-color: rgba(0, 0, 0, 0.5); /* 半透明背景 */
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            font-size: 24px;
+            font-size: 22px;
+            color: #333;
+            background: rgba(255, 255, 255, 0.8);
+            border: 1px solid #ddd;
+            padding: 10px 14px;
             cursor: pointer;
-            z-index: 1000; /* 确保按钮在最上层 */
+            z-index: 10;
+            border-radius: 8px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+            transition: all 0.3s ease;
         }
 
-        .carousel-btn.prev-btn {
-            left: 10px; /* 左按钮位置 */
+        .arrow:hover {
+            background: #fff;
         }
 
-        .carousel-btn.next-btn {
-            right: 10px; /* 右按钮位置 */
+        .arrow.left {
+            left: 10px;
+        }
+
+        .arrow.right {
+            right: 10px;
         }
     </style>
 </head>
+
 <body>
-    <!-- 导航栏区域 -->
-    <div class="b_1">
-        <div class="content-overlay">
-            <img class="logo" src="../images/1_1.png" alt="加载错误" title="图标">
-            <div class="w_1 title-1">电致变色玻璃</div>
-            <div class="nav-container">
-                <div class="w_3 nav-item"><a href="../index.html">首页</a></div>
-                <div class="w_3 nav-item"><a href="../webs/introduce.html">产品介绍</a></div>
-                <div class="w_3 nav-item"><a href="../webs/advantage.html">产品优势</a></div>
-                <div class="w_2 nav-item"><a href="../webs/application.html">应用场景</a></div>
-                <div class="w_3 nav-item"><a href="../webs/faq.html">FAQ</a></div>
+    <div class="nav">
+        <div class="nav-wrapper">
+            <div class="logo-title">
+                <img class="logo" src="../images/1_1.png" alt="加载错误" title="图标">
+                <div class="logo-text">电致变色玻璃</div>
+            </div>
+            <div class="nav-links">
+                <a class="nav-item" href="../index.html">首页</a>
+                <a class="nav-item" href="../webs/introduce.html">产品介绍</a>
+                <a class="nav-item" href="../webs/advantage.html">产品优势</a>
+                <a class="nav-item-now" href="../webs/application.html">应用场景</a>
+                <a class="nav-item" href="../webs/faq.html">FAQ</a>
             </div>
         </div>
     </div>
-    <!-- 背景图片和文字区域 -->
-    <div class="b_2">
-        <!-- 轮播容器 -->
-        <div class="carousel">
-            <!-- 第一组背景和文字 -->
-            <div class="slide-container">
-                <img src="../images/4_1.png" alt="背景1">
-                <div class="text-container">
-                    <div class="w_4">新能源汽车</div>
-                    <div class="w_5">电致变色玻璃可以用于汽车的天窗、车窗和后视镜，通过智能调节透明度，提升车内舒适度和安全性。</div>
+    <div class="carousel-wrapper">
+        <div class="carousel-container">
+            <div class="carousel-slides" id="carouselSlides">
+                <!-- 克隆最后一张 -->
+                <div class="slide" style="background-image: url('../images/4_3.png');">
+                    <div class="slide-content">
+                        <div class="main-part">
+                            <h2>视频</h2>
+                            <p>记录精彩每一刻。</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- 正常顺序 -->
+                <div class="slide" style="background-image: url('../images/4_1.png');">
+                    <div class="slide-content">
+                        <div class="main-part">
+                            <h2>新能源汽车</h2>
+                            <p>电致变色玻璃可以用于汽车的天窗、车窗和后视镜，通过智能调节透明度，提升车内舒适度和安全性。</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="slide" style="background-image: url('../images/4_2.png');">
+                    <div class="slide-content">
+                        <div class="main-part">
+                            <h2>建筑</h2>
+                            <p>随着全球对可持续发展和节能减排的关注不断增加，智能建筑和绿色建筑的需求也在不断上升。电致变色玻璃能够有效控制太阳热增益和眩光，减少人工照明和空调的使用，从而降低建筑能耗，提升室内舒适度。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="slide" style="background-image: url('../images/4_3.png');">
+                    <div class="slide-content">
+                        <div class="main-part">
+                            <h2>视频</h2>
+                            <p>（待输入）</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- 克隆第一张 -->
+                <div class="slide" style="background-image: url('../images/4_1.png');">
+                    <div class="slide-content">
+                        <div class="main-part">
+                            <h2>新能源汽车</h2>
+                            <p>绿色出行，驱动未来。</p>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <!-- 第二组背景和文字 -->
-            <div class="slide-container">
-                <img src="../images/4_2.png" alt="背景2">
-                <div class="text-container">
-                    <div class="w_4">建筑</div>
-                    <div class="w_5">随着全球对可持续发展和节能减排的关注不断增加，智能建筑和绿色建筑的需求也在不断上升。电致变色玻璃能够有效控制太阳热增益和眩光，减少人工照明和空调的使用，从而降低建筑能耗，提升室内舒适度。</div>
-                </div>
-            </div>
-            <!-- 第三组背景和文字 -->
-            <div class="slide-container">
-                <img src="../images/4_3.png" alt="背景3">
-                <div class="text-container">
-                    <div class="w_4">视频</div>
-                    <div class="w_5">（待输入）</div>
-                </div>
-            </div>
+            <button class="arrow left" onclick="prevSlide()">&#10094;</button>
+            <button class="arrow right" onclick="nextSlide()">&#10095;</button>
         </div>
-        <!-- 左右按钮 -->
-        <button class="carousel-btn prev-btn">←</button>
-        <button class="carousel-btn next-btn">→</button>
     </div>
 
     <script>
-        const carousel = document.querySelector('.carousel');
-        const slides = document.querySelectorAll('.slide-container');
-        const totalSlides = slides.length;
-        let currentIndex = 0; // 当前显示的索引
-        let intervalId; // 用于存储定时器 ID
+        const slides = document.getElementById('carouselSlides');
+        const totalSlides = 5;
+        let currentIndex = 1;
+        let isTransitioning = false;
+        let intervalId;
 
-        // 启动自动轮换
         function startAutoSlide() {
-            intervalId = setInterval(nextSlide, 3000); // 每 3 秒切换一次
+            clearInterval(intervalId);
+            intervalId = setInterval(nextSlide, 8000);
         }
 
-        // 切换到下一项
+        slides.style.transform = `translateX(-${currentIndex * 100}%)`;
+
+        function updateSlidePosition() {
+            slides.style.transition = 'transform 0.5s ease-in-out';
+            slides.style.transform = `translateX(-${currentIndex * 100}%)`;
+        }
+
+        function applyTextAnimation() {
+            const allTexts = document.querySelectorAll('.main-part h2, .main-part p');
+            allTexts.forEach(el => {
+                el.style.animation = 'none';
+                void el.offsetHeight;
+                el.style.animation = '';
+            });
+        }
+
         function nextSlide() {
-            currentIndex = (currentIndex + 1) % totalSlides; // 计算下一项的索引
-            updateCarousel();
+            if (isTransitioning) return;
+            currentIndex++;
+            updateSlidePosition();
+            applyTextAnimation();
+            isTransitioning = true;
+            startAutoSlide();
         }
 
-        // 切换到上一项
         function prevSlide() {
-            currentIndex = (currentIndex - 1 + totalSlides) % totalSlides; // 计算上一项的索引
-            updateCarousel();
+            if (isTransitioning) return;
+            currentIndex--;
+            updateSlidePosition();
+            applyTextAnimation();
+            isTransitioning = true;
+            startAutoSlide();
         }
 
-        // 更新轮播位置
-        function updateCarousel() {
-            const offset = -currentIndex * 100; // 计算偏移量
-            carousel.style.transform = `translateX(${offset}%)`; // 应用偏移
-        }
+        slides.addEventListener('transitionend', () => {
+            isTransitioning = false;
+            if (currentIndex === totalSlides - 1) {
+                slides.style.transition = 'none';
+                currentIndex = 1;
+                slides.style.transform = `translateX(-${currentIndex * 100}%)`;
+            }
+            if (currentIndex === 0) {
+                slides.style.transition = 'none';
+                currentIndex = totalSlides - 2;
+                slides.style.transform = `translateX(-${currentIndex * 100}%)`;
+            }
+        });
 
-        // 重置定时器
-        function resetTimer() {
-            clearInterval(intervalId); // 清除旧的定时器
-            startAutoSlide(); // 重新启动定时器
-        }
-
-        // 初始化自动轮换
         startAutoSlide();
-
-        // 获取按钮
-        const prevBtn = document.querySelector('.prev-btn');
-        const nextBtn = document.querySelector('.next-btn');
-
-        // 绑定按钮事件
-        prevBtn.addEventListener('click', () => {
-            prevSlide();
-            resetTimer(); // 重置定时器
-        });
-        nextBtn.addEventListener('click', () => {
-            nextSlide();
-            resetTimer(); // 重置定时器
-        });
     </script>
 </body>
+
 </html>

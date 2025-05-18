@@ -1,149 +1,179 @@
 <!DOCTYPE html>
 <html lang="zh">
+
 <head>
     <meta charset="UTF-8">
     <title>首页</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inknut+Antiqua:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inknut+Antiqua:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
     <style>
-        /* 重置默认样式 */
-        html, body {
+        body {
             margin: 0;
             padding: 0;
-            width: 100%;
-            height: 100%;
-            position: relative; /* 添加定位上下文 */
-        }
-        .b_1 {
-            width: 100%;
-            height: 14vh;
-            background-color: #FFFFFF;
-        }
-        .b_2{
-            width:100%;
-            height: 86vh;
-            background-image: url("../images/1_2.png");
-            background-repeat: no-repeat;
+            background-image: url("images/1_2.png");
             background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
             background-attachment: fixed;
-            position: relative; /* 添加定位上下文 */
+            font-family: sans-serif;
+            overflow-y: scroll;
         }
-        /* 新增容器样式 */
-        .content-overlay{
-            position: absolute;
-            top: 0;
-            left: 0;
+
+        .nav {
             width: 100%;
-            height: 20%;
-            padding: 20px;
+            height: 10vh;
+            background-color: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(4px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .nav-wrapper {
+            width: 90%;
+            max-width: 1200px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             box-sizing: border-box;
         }
-        .content-overlay-2{
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 80%;
-            padding: 20px;
-            box-sizing: border-box;
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            /* 控制导航项间距 */
         }
-        .w_1{
+
+        .nav-item {
+            color: #4B4A4A;
+            font-family: "Inspiration", serif;
+            font-size: 18px;
+            text-decoration: none;
+            white-space: nowrap;
+            transition: color 0.3s ease;
+        }
+
+        .nav-item-now {
+            color: #004AAD;
+            font-family: "Inspiration", serif;
+            font-size: 18px;
+            text-decoration: none;
+            white-space: nowrap;
+            transition: color 0.3s ease;
+        }
+
+        .logo {
+            height: 60px;
+            flex-shrink: 0;
+        }
+
+        .logo-title {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-text {
             color: #004AAD;
             font-family: "Inknut Antiqua", serif;
             font-size: 36px;
             font-weight: 800;
-            position: absolute; /* 绝对定位 */
-            top: 5%;
-            left: 5%;
-            z-index: 10;
-        }
-        /* 其他文字样式调整 */
-        .w_2{
-            color: #004AAD;
-            font-family: "Inspiration", serif;
-            font-size: 32px;
-        }
-        .w_3{
-            color: #4B4A4A;
-            font-family: "Inspiration", serif;
-            font-size: 32px;
-            cursor: pointer;
-        }
-        .w_4{
-            color: #063B82;
-            font-family: "STKaiti", serif;
-            font-size: 96px;
-            position: absolute;
-        }
-        .w_5{
-            color: #343333;
-            font-family: FZSongKeBenXiuKaiS-R-GB;
-            font-size: 40px;
-            font-style: normal;
-            font-weight: 400;
-            line-height: normal;
-            position: absolute;
-        }
-        .nav-container {
-            display: flex;
-            justify-content: space-between;
-            width: 50%;
-            margin: 0 auto;
-            position: absolute;
-            right: 0;
-            top: 40%;
-            transform: translateY(-25%);
-        }
-        .nav-item {
-            flex: 1;
-            text-align: center;
             white-space: nowrap;
         }
-        .logo {
-            position: absolute;
-            top: 0;
-            left: 5%;
-            z-index: 5;
+
+        .main {
+            width: 100%;
+            height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-sizing: border-box;
         }
-        .title-1 {
-            left: 13%;
-            top: 18%;
+
+        .main-part {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: center;
+            gap: 24px;
+
+            padding: 32px;
+            max-width: 60vw;
+            text-align: left;
+
+            background-color: rgba(255, 255, 255, 0.7);
+            border-radius: 12px;
+            backdrop-filter: blur(4px);
         }
-        .title-2 {
-            left: 15%;
-            top: 20%;
+
+        .main-title {
+            color: #063B82;
+            font-size: clamp(1.8rem, 4vw, 3rem);
+            /* 响应式标题大小 */
+            font-weight: bold;
+            font-family: "STKaiti", serif;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeUp 0.8s ease forwards;
+            animation-delay: 0.3s;
         }
-        .title-3 {
-            left: 15%;
-            top: 40%;
+
+        .main-text {
+            color: #343333;
+            font-size: clamp(1rem, 2.5vw, 1.6rem);
+            font-family: ZSongKeBenXiuKaiS-R-GB;
+            line-height: 1.6;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeUp 0.8s ease forwards;
+            animation-delay: 0.6s;
         }
+
+        @keyframes fadeUp {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* 链接设置 */
         a {
-            text-decoration: none; /* 移除下划线 */
-            color: inherit; /
+            text-decoration: none;
+            color: inherit;/
         }
     </style>
 </head>
+
 <body>
-    <div class="b_1">
-        <div class="content-overlay">
-            <img class="logo" src="images/1_1.png" alt="加载错误" title="图标">
-            <div class="w_1 title-1">电致变色玻璃</div>
-            <div class="nav-container">
-                <div class="w_2 nav-item"><a href="index.html">首页</a></div>
-                <div class="w_3 nav-item"><a href="../webs/introduce.html">产品介绍</a></div>
-                <div class="w_3 nav-item"><a href="../webs/advantage.html">产品优势</a></div>
-                <div class="w_3 nav-item"><a href="../webs/application.html">应用场景</a></div>
-                <div class="w_3 nav-item"><a href="../webs/faq.html">FAQ</a></div>
+    <div class="nav">
+        <div class="nav-wrapper">
+            <div class="logo-title">
+                <img class="logo" src="images/1_1.png" alt="加载错误" title="图标">
+                <div class="logo-text">电致变色玻璃</div>
+            </div>
+            <div class="nav-links">
+                <a class="nav-item-now" href="index.html">首页</a>
+                <a class="nav-item" href="../webs/introduce.html">产品介绍</a>
+                <a class="nav-item" href="../webs/advantage.html">产品优势</a>
+                <a class="nav-item" href="../webs/application.html">应用场景</a>
+                <a class="nav-item" href="../webs/faq.html">FAQ</a>
             </div>
         </div>
     </div>
-    <div class="b_2">
-        <!-- 将需要叠加的内容移到背景容器内 -->
-        <div class="content-overlay-2">
-            <div class="w_4 title-2">储能电致变色智能窗</div>
-            <div class="w_5 title-3">
+
+    <div class="main">
+        <div class="main-part">
+            <div class="main-title">储能电致变色智能窗</div>
+            <div class="main-text">
                 （简介：具体用哪一段文字？）利用电致变色技术，通过调节玻璃的透明度来控制车内光线和热量，从而增加车内的舒适度和安全性，特别是在夏季高温环境下。产品还具备储能功能，可以在汽车运行过程中或在蓄电池供电时储存电能，以便在断电时自动开启着色态，降低车内温度。
             </div>
         </div>
     </div>
 </body>
+
 </html>

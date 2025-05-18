@@ -1,305 +1,292 @@
 <!DOCTYPE html>
 <html lang="zh">
+
 <head>
     <meta charset="UTF-8">
     <title>FAQ</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inknut+Antiqua:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inknut+Antiqua:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
     <style>
-        /* 重置默认样式 */
-        html, body {
+        body {
             margin: 0;
             padding: 0;
-            width: 100%;
-            height: 100%;
-            position: relative;
-        }
-        .b_1 {
-            width: 100%;
-            height: 14vh;
-            background-color: #FFFFFF;
-        }
-        .b_2 {
-            width: 100%;
-            height: 86vh;
             background-image: url("../images/5_1.png");
-            background-repeat: no-repeat;
             background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
             background-attachment: fixed;
-            position: relative;
+            font-family: sans-serif;
+            overflow-y: scroll;
         }
-        /* 新增容器样式 */
-        .content-overlay {
-            position: absolute;
+
+        .nav {
+            width: 100%;
+            height: 10vh;
+            position: fixed;
             top: 0;
             left: 0;
-            width: 100%;
-            height: 20%;
-            padding: 20px;
+            z-index: 1000;
+            background-color: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(4px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .nav-wrapper {
+            width: 90%;
+            max-width: 1200px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             box-sizing: border-box;
         }
-        .content-overlay-2 {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 80%;
-            padding: 20px;
-            box-sizing: border-box;
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            /* 控制导航项间距 */
         }
-        .w_1 {
+
+        .nav-item {
+            color: #4B4A4A;
+            font-family: "Inspiration", serif;
+            font-size: 18px;
+            text-decoration: none;
+            white-space: nowrap;
+            transition: color 0.3s ease;
+        }
+
+        .nav-item-now {
+            color: #004AAD;
+            font-family: "Inspiration", serif;
+            font-size: 18px;
+            text-decoration: none;
+            white-space: nowrap;
+            transition: color 0.3s ease;
+        }
+
+        .logo {
+            height: 60px;
+            flex-shrink: 0;
+        }
+
+        .logo-title {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-text {
             color: #004AAD;
             font-family: "Inknut Antiqua", serif;
             font-size: 36px;
             font-weight: 800;
-            position: absolute;
-            top: 5%;
-            left: 5%;
-            z-index: 10;
-        }
-        .w_2 {
-            color: #004AAD;
-            font-family: "Inspiration", serif;
-            font-size: 32px;
-        }
-        .w_3 {
-            color: #4B4A4A;
-            font-family: "Inspiration", serif;
-            font-size: 32px;
-            cursor: pointer;
-        }
-        .w_4 {
-            color: #063B82;
-            font-family: "STKaiti", serif;
-            font-size: 96px;
-            position: absolute;
-        }
-        .w_5 {
-            color: #343333;
-            font-family: "FZSongKeBenXiuKaiS-R-GB", serif;
-            font-size: 40px;
-            position: absolute;
-        }
-        .nav-container {
-            display: flex;
-            justify-content: space-between;
-            width: 50%;
-            margin: 0 auto;
-            position: absolute;
-            right: 0;
-            top: 40%;
-            transform: translateY(-25%);
-        }
-        .nav-item {
-            flex: 1;
-            text-align: center;
             white-space: nowrap;
         }
-        .logo {
-            position: absolute;
-            top: 0;
-            left: 5%;
-            z-index: 5;
-        }
-        .title-1 {
-            left: 13%;
-            top: 18%;
-        }
-        .title-2 {
-            left: 15%;
-            top: 20%;
-        }
-        .title-3 {
-            left: 15%;
-            top: 40%;
-        }
-        a {
-            text-decoration: none; /* 移除下划线 */
-            color: inherit;
-        }
-        .svg-wrapper {
-            left: -44px;
-            top: 130px;
-            position: absolute;
-        }
-        /* 问题样式 */
-        .question {
-            width: 844px;
-            height: 82px;
-            padding: 10px;
-            position: absolute;
-            background: white;
+
+        .main {
+            width: 100%;
+            margin-top: 20vh;
+            margin-bottom: 20vh;
             display: flex;
-            justify-content: space-between;
             align-items: center;
-            gap: 10px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            z-index: 1; /* 确保问题在背景之上 */
+            justify-content: center;
+            box-sizing: border-box;
         }
-        /* 问题文本样式 */
-        .question-text {
-            color: #004AAD;
-            font-size: 36px;
-            font-family: Inknut Antiqua;
-            font-weight: 800;
-            word-wrap: break-word;
+
+        .main-part {
+            padding: 24px 40px 40px;
+            background-color: rgba(255, 255, 255, 0.7);
+            border-radius: 12px;
+            backdrop-filter: blur(4px);
+            box-sizing: border-box;
         }
-        /* 加号按钮样式 */
-        .expand-btn {
-            font-size: 48px;
-            color: #004AAD;
-            cursor: pointer;
-            user-select: none;
-        }
-        /* 答案区域样式 */
-        .answer-box {
-            width: 844px;
-            padding: 20px;
-            background: #F2F1F1;
-            border-radius: 10px;
-            margin-top: 10px;
-            display: none; /* 初始状态为隐藏 */
-            position: absolute;
-            left: 0;
-            top: 100%; /* 在问题下方 */
-            z-index: 1000; /* 确保答案在最上层 */
-        }
-        /* 大标题样式 */
+
         .big-title {
-            left: 697px;
-            top: 130px;
-            position: absolute;
-            color: #FFFFFF;
-            font-size: 80px;
+            text-align: center;
+            color: #004AAD;
+            font-size: 64px;
             font-family: Inknut Antiqua;
             font-weight: 800;
-            word-wrap: break-word;
-            z-index: 2; /* 确保标题在背景之上 */
+            margin-top: -40px;
+            margin-bottom: 0;
+            text-align: center;
+            position: static;
+        }
+
+        .faq-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(360px, 1fr));
+            gap: 24px 32px;
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* 每个问答组合大框 */
+        .qa-box {
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        /* 问题小框 */
+        .question-bar {
+            background-color: #E6F0FF;
+            padding: 6px 16px;
+            border-radius: 8px;
+            font-family: "Inknut Antiqua", serif;
+            font-size: 20px;
+            font-weight: bold;
+            color: #004AAD;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeUp 0.8s ease forwards;
+            animation-delay: 0.3s;
+        }
+
+        /* 答案区域 */
+        .answer-box {
+            font-family: STKaiti, serif;
+            font-size: 18px;
+            color: #343333;
+            line-height: 1.6;
+            padding: 0 4px;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeUp 0.8s ease forwards;
+            animation-delay: 0.6s;
+        }
+
+        @keyframes fadeUp {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
         }
     </style>
 </head>
+
 <body>
-    <div class="b_1">
-        <div class="content-overlay">
-            <img class="logo" src="../images/1_1.png" alt="加载错误" title="图标">
-            <div class="w_1 title-1">电致变色玻璃</div>
-            <div class="nav-container">
-                <div class="w_3 nav-item"><a href="../index.html">首页</a></div>
-                <div class="w_3 nav-item"><a href="../webs/introduce.html">产品介绍</a></div>
-                <div class="w_3 nav-item"><a href="../webs/advantage.html">产品优势</a></div>
-                <div class="w_3 nav-item"><a href="../webs/application.html">应用场景</a></div>
-                <div class="w_2 nav-item"><a href="../webs/faq.html">FAQ</a></div>
+    <div class="nav">
+        <div class="nav-wrapper">
+            <div class="logo-title">
+                <img class="logo" src="../images/1_1.png" alt="加载错误" title="图标">
+                <div class="logo-text">电致变色玻璃</div>
+            </div>
+            <div class="nav-links">
+                <a class="nav-item" href="../index.html">首页</a>
+                <a class="nav-item" href="../webs/introduce.html">产品介绍</a>
+                <a class="nav-item" href="../webs/advantage.html">产品优势</a>
+                <a class="nav-item" href="../webs/application.html">应用场景</a>
+                <a class="nav-item-now" href="../webs/faq.html">FAQ</a>
             </div>
         </div>
     </div>
-    <div class="b_2">
-        <div class="content-overlay-2">
-            <!-- 问题1 -->
-            <div class="question" style="left: 61px; top: 366px;">
-                <div class="question-text">电致变色玻璃的变色稳定性如何？</div>
-                <div class="expand-btn">+</div>
-            </div>
-            <div class="answer-box" style="left: 61px; top: 458px;">
-                待填入。
-            </div>
-
-            <!-- 问题2 -->
-            <div class="question" style="left: 976px; top: 366px;">
-                <div class="question-text">电致变色玻璃的变色稳定性如何？</div>
-                <div class="expand-btn">+</div>
-            </div>
-            <div class="answer-box" style="left: 976px; top: 458px;">
-                待填入。
-            </div>
-
-            <!-- 问题3 -->
-            <div class="question" style="left: 61px; top: 478px;">
-                <div class="question-text">电致变色玻璃的储能功能如何工作？</div>
-                <div class="expand-btn">+</div>
-            </div>
-            <div class="answer-box" style="left: 61px; top: 570px;">
-                待填入。
-            </div>
-
-            <!-- 问题4 -->
-            <div class="question" style="left: 976px; top: 478px;">
-                <div class="question-text">电致变色玻璃的储能功能如何工作？</div>
-                <div class="expand-btn">+</div>
-            </div>
-            <div class="answer-box" style="left: 976px; top: 570px;">
-                待填入。
-            </div>
-
-            <!-- 问题5 -->
-            <div class="question" style="left: 61px; top: 590px;">
-                <div class="question-text">如何购买和安装电致变色玻璃？</div>
-                <div class="expand-btn">+</div>
-            </div>
-            <div class="answer-box" style="left: 61px; top: 682px;">
-                待填入。
-            </div>
-
-            <!-- 问题6 -->
-            <div class="question" style="left: 976px; top: 590px;">
-                <div class="question-text">如何购买和安装电致变色玻璃？</div>
-                <div class="expand-btn">+</div>
-            </div>
-            <div class="answer-box" style="left: 976px; top: 682px;">
-                待填入。
-            </div>
-
-            <!-- 问题7 -->
-            <div class="question" style="left: 61px; top: 702px;">
-                <div class="question-text">电致变色玻璃如何提高车内的安全性？</div>
-                <div class="expand-btn">+</div>
-            </div>
-            <div class="answer-box" style="left: 61px; top: 794px;">
-                通过调节玻璃的透明度，电致变色玻璃可以有效控制车内光线和热量，特别是在夏季高温环境下，减少车内温度上升，提高乘客的舒适度和安全性。
-            </div>
-
-            <!-- 问题8 -->
-            <div class="question" style="left: 976px; top: 702px;">
-                <div class="question-text">电致变色玻璃如何提高车内的安全性？</div>
-                <div class="expand-btn">+</div>
-            </div>
-            <div class="answer-box" style="left: 976px; top: 794px;">
-                待填入。
-            </div>
-
-            <!-- 问题9 -->
-            <div class="question" style="left: 976px; top: 814px;">
-                <div class="question-text">电致变色玻璃如何提高车内的安全性？</div>
-                <div class="expand-btn">+</div>
-            </div>
-            <div class="answer-box" style="left: 976px; top: 906px;">
-                待填入。
-            </div>
-
-            <!-- 大标题 -->
+    <div class="main">
+        <div class="main-part">
             <div class="big-title">常见问题解答</div>
+            <div class="faq-grid">
+                <!-- FAQ 1 -->
+                <div class="qa-box">
+                    <div class="question-bar">
+                        电致变色玻璃的变色稳定性如何？
+                    </div>
+                    <div class="answer-box">
+                        待填入。
+                    </div>
+                </div>
+                <!-- FAQ 2 -->
+                <div class="qa-box">
+                    <div class="question-bar">
+                        电致变色玻璃的变色稳定性如何？
+                    </div>
+                    <div class="answer-box">
+                        待填入。
+                    </div>
+                </div>
+                <!-- FAQ 3 -->
+                <div class="qa-box">
+                    <div class="question-bar">
+                        电致变色玻璃的储能功能如何工作？
+                    </div>
+                    <div class="answer-box">
+                        待填入。
+                    </div>
+                </div>
+                <!-- FAQ 4 -->
+                <div class="qa-box">
+                    <div class="question-bar">
+                        电致变色玻璃的储能功能如何工作？
+                    </div>
+                    <div class="answer-box">
+                        待填入。
+                    </div>
+                </div>
+                <!-- FAQ 5 -->
+                <div class="qa-box">
+                    <div class="question-bar">
+                        如何购买和安装电致变色玻璃？
+                    </div>
+                    <div class="answer-box">
+                        待填入。
+                    </div>
+                </div>
+                <!-- FAQ 6 -->
+                <div class="qa-box">
+                    <div class="question-bar">
+                        如何购买和安装电致变色玻璃？
+                    </div>
+                    <div class="answer-box">
+                        待填入。
+                    </div>
+                </div>
+                <!-- FAQ 7 -->
+                <div class="qa-box">
+                    <div class="question-bar">
+                        电致变色玻璃如何提高车内的安全性？
+                    </div>
+                    <div class="answer-box">
+                        通过调节玻璃的透明度，电致变色玻璃可以有效控制车内光线和热量，特别是在夏季高温环境下，减少车内温度上升，提高乘客的舒适度和安全性。
+                    </div>
+                </div>
+                <!-- FAQ 8 -->
+                <div class="qa-box">
+                    <div class="question-bar">
+                        电致变色玻璃如何提高车内的安全性？
+                    </div>
+                    <div class="answer-box">
+                        通过调节玻璃的透明度，电致变色玻璃可以有效控制车内光线和热量，特别是在夏季高温环境下，减少车内温度上升，提高乘客的舒适度和安全性。
+                    </div>
+                </div>
+                <!-- FAQ 9 -->
+                <div class="qa-box">
+                    <div class="question-bar">
+                        电致变色玻璃如何提高车内的安全性？
+                    </div>
+                    <div class="answer-box">
+                        通过调节玻璃的透明度，电致变色玻璃可以有效控制车内光线和热量，特别是在夏季高温环境下，减少车内温度上升，提高乘客的舒适度和安全性。
+                    </div>
+                </div>
+                <!-- 可继续添加更多 FAQ 项 -->
+            </div>
         </div>
     </div>
-
-    <script>
-        // 获取所有加号按钮
-        const expandButtons = document.querySelectorAll('.expand-btn');
-
-        // 遍历每个按钮
-        expandButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                // 找到对应的答案区域
-                const answerBox = button.parentElement.nextElementSibling;
-
-                // 切换答案区域的显示状态
-                if (answerBox.style.display === 'none' || !answerBox.style.display) {
-                    answerBox.style.display = 'block';
-                    button.textContent = '-'; // 切换为减号
-                } else {
-                    answerBox.style.display = 'none';
-                    button.textContent = '+'; // 切换为加号
-                }
-            });
-        });
-    </script>
 </body>
+
 </html>
